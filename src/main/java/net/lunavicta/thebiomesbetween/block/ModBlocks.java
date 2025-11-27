@@ -67,8 +67,10 @@ public class ModBlocks {
                 }
             });
     /* SAPLING */
-    public static final DeferredBlock<Block> BLOODWOOD_SAPLING= registerBlock("bloodwood_sapling",
-            () -> new SaplingBlock(, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final DeferredBlock<Block> BLOODWOOD_SAPLING = registerBlock("bloodwood_sapling",
+            (properties) -> new ModSaplingBlock(ModTreeGrowers.BLOODWOOD,
+                    properties.mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak()
+                            .sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY), () -> Blocks.NETHERRACK));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

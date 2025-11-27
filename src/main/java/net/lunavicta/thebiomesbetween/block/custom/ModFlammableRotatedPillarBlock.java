@@ -1,5 +1,6 @@
 package net.lunavicta.thebiomesbetween.block.custom;
 
+import net.lunavicta.thebiomesbetween.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.AxeItem;

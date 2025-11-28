@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "thebiomesbetween:block/stripped_bloodwood_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "thebiomesbetween:block/stripped_bloodwood_log"
+    },
+    "axis=z": {
+      "model": "thebiomesbetween:block/stripped_bloodwood_log_horizontal",
+      "x": 90
+    }
+  }
+}

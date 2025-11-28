@@ -1,15 +1,19 @@
 package net.lunavicta.thebiomesbetween.block;
 
 import net.lunavicta.thebiomesbetween.TheBiomesBetween;
-import net.lunavicta.thebiomesbetween.block.custom.*;
+import net.lunavicta.thebiomesbetween.block.custom.ModFlammableRotatedPillarBlock;
+import net.lunavicta.thebiomesbetween.block.custom.ModSaplingBlock;
 import net.lunavicta.thebiomesbetween.item.ModItems;
 import net.lunavicta.thebiomesbetween.worldgen.tree.ModTreeGrowers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -57,9 +61,8 @@ public class ModBlocks {
             });
 
     public static final DeferredBlock<Block> BLOODWOOD_LEAVES = registerBlock("bloodwood_leaves",
-            (properties) -> new UntintedParticleLeavesBlock(0.01f, ParticleTypes.CHERRY_LEAVES,
-                    properties.mapColor(MapColor.PLANT).strength(0.2F).randomTicks().sound(SoundType.CHERRY_LEAVES)
-                            .noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).ignitedByLava().pushReaction(PushReaction.DESTROY)) {
+            (properties) -> new LeavesBlock(properties.mapColor(MapColor.PLANT).strength(0.2F).randomTicks().sound(SoundType.CHERRY_LEAVES)
+                    .noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).ignitedByLava().pushReaction(PushReaction.DESTROY)) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return true;
@@ -76,6 +79,7 @@ public class ModBlocks {
                 }
             });
 
+
     public static final DeferredBlock<Block> BLOODWOOD_SAPLING = registerBlock("bloodwood_sapling",
             (properties) -> new ModSaplingBlock(ModTreeGrowers.BLOODWOOD,
                     properties.mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak()
@@ -89,7 +93,7 @@ public class ModBlocks {
     }
 
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
-        ModItems.ITEMS.registerItem(name, (properties) -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static void register(IEventBus eventBus) {

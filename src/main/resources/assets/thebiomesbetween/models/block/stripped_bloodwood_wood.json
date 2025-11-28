@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "thebiomesbetween:block/stripped_bloodwood_log",
+    "side": "thebiomesbetween:block/stripped_bloodwood_log"
+  }
+}

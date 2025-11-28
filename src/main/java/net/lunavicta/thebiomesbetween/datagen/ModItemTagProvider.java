@@ -2,7 +2,6 @@ package net.lunavicta.thebiomesbetween.datagen;
 
 import net.lunavicta.thebiomesbetween.TheBiomesBetween;
 import net.lunavicta.thebiomesbetween.block.ModBlocks;
-import net.lunavicta.thebiomesbetween.item.custom.ModItems;
 import net.lunavicta.thebiomesbetween.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
